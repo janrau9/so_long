@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 09:33:34 by jberay            #+#    #+#              #
-#    Updated: 2024/02/02 09:17:01 by jberay           ###   ########.fr        #
+#    Updated: 2024/02/06 09:55:05 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,11 +114,11 @@ compiling:
 
 clean: 
 	@$(RM) $(OBJS) $(BONUS_OBJS) $(FT_PRINTF_OBJS) .bonus
-	@echo "$(WHITE)Objects Cleaned!$(DEF_COLOR)"	
+	@echo "$(GREEN)Objects Cleaned!$(DEF_COLOR)"	
 
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "$(WHITE)Cleaned!$(DEF_COLOR)"	
+	@echo "$(GREEN)Cleaned!$(DEF_COLOR)"	
 
 re: fclean all
 

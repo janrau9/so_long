@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 11:38:23 by jberay            #+#    #+#              #
-#    Updated: 2024/02/02 15:19:45 by jberay           ###   ########.fr        #
+#    Updated: 2024/02/06 10:43:23 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,13 @@ WHITE = \033[0;97m
 NAME			=	so_long
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
-SRCS 			=	main.c
+SRCS 			=	main.c \
+					so_errors.c \
+					so_check_map.c \
+					so_check_args.c \
 						
 OBJS			=	$(SRCS:%.c=%.o)
 
@@ -45,14 +48,14 @@ $(NAME):			$(LIBFT) $(OBJS)
 					@$(CC) $(CFLAGS) -c $< -o $@		
 							
 $(LIBFT):
-					make -C $(LIBFT_PATH) all bonus
+					@make -C $(LIBFT_PATH) all bonus
 
 clean:
-					make -C $(LIBFT_PATH) clean
+					@make -C $(LIBFT_PATH) clean
 					@$(RM) $(OBJS)
 
 fclean:				clean
-					make -C $(LIBFT_PATH) fclean
+					@make -C $(LIBFT_PATH) fclean
 					@$(RM) $(NAME)
 					
 re:					fclean all

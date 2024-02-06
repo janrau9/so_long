@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:49:19 by jberay            #+#    #+#             */
-/*   Updated: 2024/02/02 15:18:24 by jberay           ###   ########.fr       */
+/*   Updated: 2024/02/06 10:08:37 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,27 @@ typedef struct s_args
 	char	*line;
 	int		column;
 	int		row;
+	int		x;
+	int		y;
 	int		player;
 	int		exit;
 	int		collectible;
+	t_list	*head;
 }			t_args;
 
 typedef struct s_data
 {
 	char	**map;
 }			t_data;
+
+
+/*error exit*/
+void	ft_free_error(char *message, char **array);
+void	ft_error(char *message);
+void	ft_free_array(char **array);
+
+/*check args*/
+void	check_args(t_args *args, int argc, char **argv);
+void	is_valid_map(t_data *data, t_args *args);
 
 #endif
