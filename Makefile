@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 11:38:23 by jberay            #+#    #+#              #
-#    Updated: 2024/02/06 10:43:23 by jberay           ###   ########.fr        #
+#    Updated: 2024/02/07 16:38:51 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,15 @@ WHITE = \033[0;97m
 NAME			=	so_long
 
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror 
 RM				=	rm -rf
 
 SRCS 			=	main.c \
 					so_errors.c \
+					so_delete.c \
 					so_check_map.c \
 					so_check_args.c \
+					so_load_img.c \
 						
 OBJS			=	$(SRCS:%.c=%.o)
 
@@ -41,7 +43,7 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 all:				$(NAME)
 
 $(NAME):			$(LIBFT) $(OBJS)
-					@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME) 
+					@$(CC) $(CFLAGS) libmlx42.a $(OBJS) $(LIBFT) -Iinclude -lglfw -L"/Users/jberay/.brew/opt/glfw/lib/" -o $(NAME) 
 					@echo "$(GREEN)So_long compiled!$(DEF_COLOR)"	
 					
 %.o:%.c

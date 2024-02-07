@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:58:30 by jberay            #+#    #+#             */
-/*   Updated: 2024/02/06 11:12:56 by jberay           ###   ########.fr       */
+/*   Updated: 2024/02/07 13:17:56 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,11 @@ void	is_valid_map(t_data *data, t_args *args)
 
 	i = 0;
 	args->column = ft_strlen(data->map[0]);
+	data->column = args->column;
 	args->player = 0;
 	args->exit = 0;
+	args->collectible = 0;
+	data->collectible = 0;
 	while (data->map[i])
 	{
 		if ((int)ft_strlen(data->map[i]) != args->column)
@@ -120,6 +123,7 @@ void	is_valid_map(t_data *data, t_args *args)
 		is_walls(data, args, i);
 		i++;
 	}
+	data->collectible = args->collectible;
 	if (args->player != 1 || args->exit != 1 || args->collectible < 1)
 		ft_error("Map is invalid");
 	is_path(data, args);

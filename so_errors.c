@@ -6,11 +6,20 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:58:55 by jberay            #+#    #+#             */
-/*   Updated: 2024/02/06 09:58:56 by jberay           ###   ########.fr       */
+/*   Updated: 2024/02/07 16:43:59 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	error(t_data data)
+{
+	ft_printf(mlx_strerror(mlx_errno));
+	mlx_delete_image_array(data, data.i);
+	mlx_delete_texture_array(data, data.i);
+	mlx_terminate(data.mlx);
+	exit(EXIT_FAILURE);
+}
 
 void	ft_free_array(char **array)
 {
