@@ -6,7 +6,7 @@
 #    By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 11:38:23 by jberay            #+#    #+#              #
-#    Updated: 2024/02/07 16:38:51 by jberay           ###   ########.fr        #
+#    Updated: 2024/02/08 11:41:56 by jberay           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ SRCS 			=	main.c \
 					so_check_map.c \
 					so_check_args.c \
 					so_load_img.c \
+					so_draw.c \
+					so_utils.c \
+					so_move.c
 						
 OBJS			=	$(SRCS:%.c=%.o)
 

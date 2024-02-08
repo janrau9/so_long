@@ -6,7 +6,7 @@
 /*   By: jberay <jberay@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 10:49:19 by jberay            #+#    #+#             */
-/*   Updated: 2024/02/07 17:03:51 by jberay           ###   ########.fr       */
+/*   Updated: 2024/02/08 14:31:36 by jberay           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_args
 	int		exit;
 	int		collectible;
 	t_list	*head;
+	t_list	*tmp;
 }			t_args;
 
 typedef struct s_data
@@ -46,16 +47,13 @@ typedef struct s_data
 	int				row;
 	int				column;
 	char			*texture_path;
-	int				identifier;
 	int				collectible;
 	int				i;
-	int				instance;
+	int				moves;
 	mlx_t			*mlx;
 	mlx_texture_t	*txr[5];
 	mlx_image_t		*img[5];
-	int				c[3];
 }					t_data;
-
 
 /*error exit*/
 void	ft_free_error(char *message, char **array);
@@ -68,7 +66,16 @@ void	mlx_delete_texture_array(t_data data, int i);
 /*check args*/
 void	check_args(t_args *args, int argc, char **argv);
 void	is_valid_map(t_data *data, t_args *args);
+void	init_map(t_data *data, t_args *args);
+
+/*utils*/
+int		current_location(t_data *data, int x, int y);
+int		ret_instance(t_data *data, int x, int y);
+int		is_all_disabled(t_data *data);
+void	check_collectibles(t_data *data);
 
 void	load_img(t_data *data);
+void	draw_map(t_data *data);
+void	hook(void *d);
 
 #endif
